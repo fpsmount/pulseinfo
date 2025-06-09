@@ -1,13 +1,24 @@
 package br.com.fpsmount.pulseinfo.DOMAIN;
 
+import jakarta.persistence.*;
+
 import java.util.List;
 
+@Entity(name = "usuario")
+@Table(name = "usuario")
 public class Usuario {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_usuario;
     private String senha_usuario;
     private String email_usuario;
-    private List<Categorias> interesses;
     private List<Cidades> cidades_favoritas;
+
+    public Usuario(String senha_usuario, String email_usuario, Cidades cidades){
+        this.senha_usuario = senha_usuario;
+        this.email_usuario = email_usuario;
+        this.cidades_favoritas.add(cidades);
+    }
 
     public int getId_usuario() {
         return id_usuario;
@@ -27,14 +38,6 @@ public class Usuario {
 
     public void setEmail_usuario(String email_usuario) {
         this.email_usuario = email_usuario;
-    }
-
-    public List<Categorias> getInteresses() {
-        return interesses;
-    }
-
-    public void setInteresses(List<Categorias> interesses) {
-        this.interesses = interesses;
     }
 
     public List<Cidades> getCidades_favoritas() {

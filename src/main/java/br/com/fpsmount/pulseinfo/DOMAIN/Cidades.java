@@ -1,6 +1,12 @@
 package br.com.fpsmount.pulseinfo.DOMAIN;
 
+import jakarta.persistence.*;
+
+@Entity(name = "cidades")
+@Table(name = "cidades")
 public class Cidades {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id_cidade;
     private String nome;
     private String codigoAPI;

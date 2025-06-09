@@ -1,6 +1,12 @@
 package br.com.fpsmount.pulseinfo.DOMAIN;
 
+import jakarta.persistence.*;
+
+@Entity(name = "categorias")
+@Table(name = "categorias")
 public class Categorias {
+    @Id
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id_categoria;
     private String nome;
 
